@@ -98,6 +98,7 @@ print("SOME TEST CASES\n")
 print("regex 1 =", arr)
 print("tree created. row representation of tree:")
 rex = ReX(arr)
+# ( * ( , ( | ( ab )  ( | ( cd )  )
 print(rex)
 
 print("____________________________________________")
@@ -105,11 +106,13 @@ print("regex 2 =", arr1)
 print("tree created. row representation of tree:")
 rex1 = ReX(arr1)
 print(rex1)
+# ( , ( *a )  ( *b )  )
 
 print("____________________________________________")
 print("regex 3 =", arr2)
 print("tree created. row representation of tree:")
 rex2 = ReX(arr2)
+# ( , ( ab )  )
 print(rex2)
 
 
