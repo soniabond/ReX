@@ -1,3 +1,4 @@
+#CALL THIS FROM ReX.py
 startState = "sFirst"
 lastState = "sLast"
 emptyWord = 'e'
