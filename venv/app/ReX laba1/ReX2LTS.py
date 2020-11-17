@@ -30,7 +30,7 @@ class ReX2LTS:
                     firstTransStart = transitions[counter]
                     firstTransEnd = transitions[counter]
                     counter += 1
-                elif secondTrans == None:
+                elif secondTransStart == None:
                     transitions.insert(counter, [startState, token, lastState]);
                     secondTransStart = transitions[counter]
                     secondTransEnd = transitions[counter]
@@ -142,7 +142,11 @@ class ReX2LTS:
                     firstTransEnd[2] = newEnd
                     firstTransEnd = transitions[counter]
                     counter += 1
+        self.transitions = transitions;
 
+    def printTransitions(self):
+        for item in self.transitions:
+            print(item)
 
 
 

@@ -84,7 +84,7 @@ class ReX:
 
 
 
-
+a = " ( a | b ) "
 arr = " ( ( ( a | b ) , ( c | d ) ) * ) "
 arr1 = "( ( a * ) , ( b * ) )"
 arr2 = "( a , b )"
@@ -95,10 +95,11 @@ splt.insert(1, "|")
 print("SOME TEST CASES\n")
 print("regex 1 =", arr)
 print("tree created. row representation of tree:")
-rex = ReX(arr)
+rex = ReX(a)
 print(rex.tree.getRootVal())
 print(rex.tree.getRightChild())
-ReX2LTS.ReX2LTS(rex.tree)
+re = ReX2LTS.ReX2LTS(rex.tree)
+re.printTransitions()
 # ( * ( , ( | ( ab )  ( | ( cd )  )
 #print(rex)
 
