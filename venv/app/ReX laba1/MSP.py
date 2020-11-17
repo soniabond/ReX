@@ -58,8 +58,7 @@ class MSP:
 
 
 
-
-
+print(firstTransEnd)
 msp = MSP()
 # True
 print(msp.accept("aabbaaaba"))

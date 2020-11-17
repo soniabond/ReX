@@ -1,6 +1,6 @@
 from pythonds.basic.stack import Stack
 from pythonds.trees.binaryTree import BinaryTree
-
+import ReX2LTS
 class ReX:
 
 
@@ -85,8 +85,6 @@ class ReX:
 
 
 
-
-
 arr = " ( ( ( a | b ) , ( c | d ) ) * ) "
 arr1 = "( ( a * ) , ( b * ) )"
 arr2 = "( a , b )"
@@ -98,22 +96,25 @@ print("SOME TEST CASES\n")
 print("regex 1 =", arr)
 print("tree created. row representation of tree:")
 rex = ReX(arr)
+print(rex.tree.getRootVal())
+print(rex.tree.getRightChild())
+ReX2LTS.ReX2LTS(rex.tree)
 # ( * ( , ( | ( ab )  ( | ( cd )  )
-print(rex)
+#print(rex)
 
-print("____________________________________________")
-print("regex 2 =", arr1)
-print("tree created. row representation of tree:")
-rex1 = ReX(arr1)
-print(rex1)
+#print("____________________________________________")
+#print("regex 2 =", arr1)
+#print("tree created. row representation of tree:")
+#rex1 = ReX(arr1)
+#print(rex1)
 # ( , ( *a )  ( *b )  )
 
-print("____________________________________________")
-print("regex 3 =", arr2)
-print("tree created. row representation of tree:")
-rex2 = ReX(arr2)
+#print("____________________________________________")
+#print("regex 3 =", arr2)
+#print("tree created. row representation of tree:")
+#rex2 = ReX(arr2)
 # ( , ( ab )  )
-print(rex2)
+#print(rex2)
 
 
 
