@@ -73,38 +73,54 @@ class ReX2LTS:
                 newEndSecond = "s" + str(self.states.__len__())
                 self.states.append(newEndSecond)
                 if thirdTransStart == None:
-                    transitions.insert(counter, [startState, emptyWord, newStartFirst]);
+                    newStart = "s" + str(self.states.__len__())
+                    self.states.append(newStart)
+                    transitions.insert(counter, [newStart, emptyWord, newStartFirst]);
                     firstTransStart[0] = newStartFirst
-                    firstTransStart = transitions[counter]
                     counter += 1
-                    transitions.insert(counter, [startState, emptyWord, newStartSecond]);
+                    transitions.insert(counter, [newStart, emptyWord, newStartSecond]);
                     secondTransStart[0] = newStartSecond
                     secondTransStart = None
                     counter += 1
-                    transitions.insert(counter, [newEndFirst, emptyWord, lastState]);
-                    firstTransEnd[2] = newEndFirst
-                    firstTransEnd = transitions[counter]
+                    transitions.insert(counter, [startState, emptyWord, newStart]);
+                    firstTransStart = transitions[counter]
                     counter += 1
-                    transitions.insert(counter, [newEndSecond, emptyWord, lastState]);
+                    newEndPoint = "s" + str(self.states.__len__())
+                    self.states.append(newStartSecond)
+                    transitions.insert(counter, [newEndFirst, emptyWord, newEndPoint]);
+                    firstTransEnd[2] = newEndPoint
+                    counter += 1
+                    transitions.insert(counter, [newEndSecond, emptyWord, newEndPoint]);
                     secondTransEnd[2] = newEndSecond
                     secondTransEnd = None
                     counter += 1
+                    transitions.insert(counter, [newEndPoint, emptyWord, lastState]);
+                    firstTransEnd = transitions[counter]
+                    counter+=1
                 else:
-                    transitions.insert(counter, [startState, emptyWord, newStartFirst]);
+                    newStart = "s" + str(self.states.__len__())
+                    self.states.append(newStart)
+                    transitions.insert(counter, [newStart, emptyWord, newStartFirst]);
                     secondTransStart[0] = newStartFirst
-                    secondTransStart = transitions[counter]
                     counter += 1
-                    transitions.insert(counter, [startState, emptyWord, newStartSecond]);
+                    transitions.insert(counter, [newStart, emptyWord, newStartSecond]);
                     thirdTransStart[0] = newStartSecond
                     thirdTransStart = None
                     counter += 1
-                    transitions.insert(counter, [newEndFirst, emptyWord, lastState]);
-                    secondTransEnd[2] = newEndFirst
-                    secondTransEnd = transitions[counter]
+                    transitions.insert(counter, [startState, emptyWord, newStart]);
+                    secondTransStart = transitions[counter]
                     counter += 1
-                    transitions.insert(counter, [newEndSecond, emptyWord, lastState]);
+                    newEndPoint = "s" + str(self.states.__len__())
+                    self.states.append(newStartSecond)
+                    transitions.insert(counter, [newEndFirst, emptyWord, newEndPoint]);
+                    secondTransEnd[2] = newEndPoint
+                    counter += 1
+                    transitions.insert(counter, [newEndSecond, emptyWord, newEndPoint]);
                     thirdTransEnd[2] = newEndSecond
                     thirdTransEnd = None
+                    counter += 1
+                    transitions.insert(counter, [newEndPoint, emptyWord, lastState]);
+                    secondTransEnd = transitions[counter]
                     counter += 1
 
             if token == '*':

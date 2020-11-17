@@ -89,15 +89,10 @@ arr = " ( ( ( a | b ) , ( c | d ) ) * ) "
 arr1 = "( ( a * ) , ( b * ) )"
 arr2 = "( a , b )"
 splt = arr.split()
+arr3 = " ( ( a , b ) , ( c | d ) ) "
 
 splt.insert(1, "|")
-
-print("SOME TEST CASES\n")
-print("regex 1 =", arr)
-print("tree created. row representation of tree:")
-rex = ReX(a)
-print(rex.tree.getRootVal())
-print(rex.tree.getRightChild())
+rex = ReX(arr3)
 re = ReX2LTS.ReX2LTS(rex.tree)
 re.printTransitions()
 # ( * ( , ( | ( ab )  ( | ( cd )  )
