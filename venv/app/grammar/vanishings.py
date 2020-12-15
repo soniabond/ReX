@@ -16,7 +16,6 @@ def vanashings(sigma, N, S, P):
             for following in P[item]:
                 if following[0] == empty and item not in vanishingTerms:
                     vanishingTerms.append(item)
-                    print(item)
                     break
                 for elem in following:
                     if elem not in vanishingTerms:
@@ -33,12 +32,22 @@ def vanashings(sigma, N, S, P):
 
 
 
-graph = buildGraph(N, P)
+
 print("input")
 print("N:", N)
 print("P:", P)
 print("output")
-print("Graph:", graph)
-circleVertexes = circleSearch(graph)
-print("Vertexes with circles", circleVertexes)
 vanishingTerms = vanashings(sigma, N, S, P)
+print("Vanishing terms", vanishingTerms)
+
+
+# EXAMPLE OUTPUT
+# sigma = ['a', 'b', 'c', 'd']
+# empty = 'e'
+# N = ['S', 'A', 'B', 'C']
+# N: ['S', 'A', 'B', 'C']
+# P: {'S': [['A', 'a'], ['B']], 'A': [['A']], 'C': [['a'], ['b'], ['c'], ['d'], ['S']], 'B': [['d'], ['e']]}
+# output
+# Vanishing terms ['B', 'S', 'C']
+#
+# Process finished with exit code 0
