@@ -33,12 +33,12 @@ def vanashings(sigma, N, S, P):
 
 
 
-print("input")
-print("N:", N)
-print("P:", P)
-print("output")
-vanishingTerms = vanashings(sigma, N, S, P)
-print("Vanishing terms", vanishingTerms)
+# print("input")
+# print("N:", N)
+# print("P:", P)
+# print("output")
+# vanishingTerms = vanashings(sigma, N, S, P)
+# print("Vanishing terms", vanishingTerms)
 
 
 # EXAMPLE OUTPUT
