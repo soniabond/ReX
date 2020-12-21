@@ -17,8 +17,7 @@ empty = 'e'
 # S = N[0]
 # P = {'S': [['S', '|', 'S'], ['A']], 'A': [['A', ',', 'A'], ['P']],  'P': [['P', '*'], ['c'], ['n']]}
 end = '-'
-# for i in product('10', repeat=4):
-#     print(i, end=' ')
+
 
 def generateNewTerm(lastTerm):
     term = chr(ord(lastTerm)+1)
