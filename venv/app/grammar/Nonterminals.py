@@ -1,7 +1,7 @@
-sigma = ['a', 'b', 'c', 'd']
-N = ['S', 'A', 'B', 'C', 'D', 'F']
-S = N[0]
-P = {'S': [['A', 'a'], ['B', 'b']], 'A': [['C']], 'C': [['a'], ['b'], ['c'], ['d']], 'D': [['C', 'a'], ['F']], 'F': [['B']]}
+# sigma = ['a', 'b', 'c', 'd']
+# N = ['S', 'A', 'B', 'C', 'D', 'F']
+# S = N[0]
+# P = {'S': [['A', 'a'], ['B', 'b']], 'A': [['C']], 'C': [['a'], ['b'], ['c'], ['d']], 'D': [['C', 'a'], ['F']], 'F': [['B']]}
 
 
 def alives(sigma, N, S, P):
@@ -39,6 +39,8 @@ def alives(sigma, N, S, P):
 
     for key in newP:
         for i in range(len(newP[key])):
+            if i>= len(newP[key]):
+                break
             for j in range(len(newP[key][i])):
                 if newP[key][i][j] not in aliveTerminals and newP[key][i][j] not in sigma:
                     newP[key].remove(newP[key][i])
@@ -52,7 +54,7 @@ def alives(sigma, N, S, P):
 
 def reachables(sigma, N, S, P):
     newP = dict()
-    newN = [S]
+    # newN = [S]
     reachableTerminals = [S]
     found = 1
     reachableTerminalSize = 1
@@ -83,20 +85,12 @@ def reachables(sigma, N, S, P):
 
 
 def deleteExtraTerminals(sigma, N, S, P):
-    print("before")
-    print("N:", N)
-    print("P:", P)
     newP, newN = alives(sigma, N, S, P)
-    print("after deleting not alive terminals")
-    print("N:", newN)
-    print("P:", newP)
     newP, newN = reachables(sigma, newN, S, newP)
-    print("and after deleting unreachable terminals")
-    print("N:", newN)
-    print("P:", newP)
+    return newP, newN
 
 
-deleteExtraTerminals(sigma, N, S, P)
+# deleteExtraTerminals(sigma, N, S, P)
 
 # EXAMPLE OF OUTPUT
 # before

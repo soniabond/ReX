@@ -34,15 +34,20 @@ def circleSearch(graph):
     return circleVertexes
 
 
+def diagnoseRecurison(N, P):
+    graph = buildGraph(N, P)
+    circleVertexes = circleSearch(graph)
+    return circleVertexes
 
-graph = buildGraph(N, P)
-print("input")
-print("N:", N)
-print("P:", P)
-print("output")
-print("Graph:", graph)
-circleVertexes = circleSearch(graph)
-print("Vertexes with circles", circleVertexes)
+#print(diagnoseRecurison(N, P))
+# graph = buildGraph(N, P)
+# print("input")
+# print("N:", N)
+# print("P:", P)
+# print("output")
+# print("Graph:", graph)
+# circleVertexes = circleSearch(graph)
+# print("Vertexes with circles", circleVertexes)
 
 # EXAMPLE OF CHECHENG LEFT RECURSION
 # input
