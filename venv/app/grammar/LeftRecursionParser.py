@@ -121,21 +121,18 @@ def deleteRecForAll():
 
 
 def parse(word, terms):
-    if terms == [] and len(word)==1:
-        return True
-    if terms == []:
-        return False
     firstTerm = terms.pop()
     if firstTerm == empty:
+        if len(terms) == 0 and len(word) == 1:
+            return True
         if len(terms) != 0:
             firstTerm = terms.pop()
-        elif len(terms) == 0 and len(word)>0:
+        elif len(terms) == 0 and len(word)>1:
             return False
 
     if len(word) == 1 and len(terms) == 0:
         if firstTerm == empty:
            return True
-        return False
     if firstTerm in sigma and word[len(word)-1] != firstTerm:
         return False
     if firstTerm in sigma and word[len(word)-1] == firstTerm:
