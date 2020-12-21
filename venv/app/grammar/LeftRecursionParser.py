@@ -115,9 +115,6 @@ def eraseRightTerm(term):
 def deleteRecForAll():
     while True:
         for term in list(P):
-            print(term)
-            print("P ", P)
-            print("N ", N)
             deleteStraightLestRecursion(term)
             eraseRightTerm(term)
         if LeftRecursion.diagnoseRecurison(N, P) == []:
@@ -165,27 +162,63 @@ def parse(word, terms):
 
 
 
-
+print("P in the beginning: ", P)
+print("N in the beginning: ", N)
 P, N = Nonterminals.deleteExtraTerminals(sigma, N, S, P)
-newP, newN = deleteAllVanishings()
-print("after delete vanish ", newP)
+deleteAllVanishings()
+print("P after delete vanish ", P)
+print("N after delete vanish ", N)
 deleteRecForAll()
-print("all rec deleted:", P)
+print("P with all recursion deleted:", P)
 print("new set of N ", N)
+print("----------------------------------------------------------------")
 word = list()
 word.append('b')
 word.append('b')
 word.append('a')
 word.append(end)
 word.reverse()
-print(word)
-terms = []
-terms.append('S')
-print(parse(word, terms))
+terms = ['S']
+wordOutput = word.copy()
+wordOutput.reverse()
+print("word: ", wordOutput, "is deducible: ", parse(word, terms))
+print("----------------------------------------------------------------")
+word = list()
+word.append('b')
+word.append('b')
+word.append('b')
+word.append(end)
+word.reverse()
+terms = ['S']
+wordOutput = word.copy()
+wordOutput.reverse()
+print("word: ", wordOutput, "is deducible: ", parse(word, terms))
+print("----------------------------------------------------------------")
+word = list()
+word.append('c')
+word.append('b')
+word.append('a')
+word.append(end)
+word.reverse()
+terms = ['S']
+wordOutput = word.copy()
+wordOutput.reverse()
+print("word: ", wordOutput, "is deducible: ", parse(word, terms))
 
-# newP, newN = deleteStraightLestRecursion('S', newP, newN)
-# print("without left rec for S", newP)
-# print("rec vertexes: ", LeftRecursion.diagnoseRecurison(N, newP))
-# newP = eraseRightTerm('S', newN, newP)
-# print("rec deleted for S: ", newP)
-# print("rec vertexes: ", LeftRecursion.diagnoseRecurison(newN, newP))
+
+# EXAMPLE OUTPUT
+# P in the beginning:  {'S': [['A', 'a'], ['B', 'b'], ['C']], 'A': [['S', 'C']], 'C': [['a'], ['b'], ['c'], ['d']], 'D': [['C', 'a'], ['F']], 'F': [['B']]}
+# N in the beginning:  ['S', 'A', 'B', 'C', 'D', 'F']
+# P after delete vanish  {'S': [['A', 'a'], ['C']], 'A': [['S', 'C']], 'C': [['a'], ['b'], ['c'], ['d']]}
+# N after delete vanish  ['S', 'A', 'C']
+# P with all recursion deleted: {'S': [['a', 'C', 'D', 'a'], ['b', 'C', 'D', 'a'], ['c', 'C', 'D', 'a'], ['d', 'C', 'D', 'a'], ['a'], ['b'], ['c'], ['d']], 'A': [['a', 'C', 'D'], ['b', 'C', 'D'], ['c', 'C', 'D'], ['d', 'C', 'D']], 'C': [['a'], ['b'], ['c'], ['d']], 'D': [['a', 'C', 'D'], ['e']]}
+# new set of N  ['S', 'A', 'C', 'D']
+# ----------------------------------------------------------------
+# word:  ['b', 'b', 'a', '-'] is deducible:  True
+# ----------------------------------------------------------------
+# word:  ['b', 'b', 'b', '-'] is deducible:  False
+# ----------------------------------------------------------------
+# word:  ['c', 'b', 'a', '-'] is deducible:  True
+#
+# Process finished with exit code 0
+
