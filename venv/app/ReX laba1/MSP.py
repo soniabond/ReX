@@ -1,6 +1,8 @@
 from pythonds.basic.stack import Stack
 emplyWord = 'e'
 
+
+ar = "hehheldskhfkashfsfdlasjf'lasj'asfasnf'asnf;nlasfas!!!!!!!"
 # этот МСП принимает слова состоящие из букв a, b с четным количеством букв a
 class MSP:
     def __init__(self):
