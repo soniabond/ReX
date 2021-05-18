@@ -2,6 +2,7 @@
 startState = "sFirst"
 lastState = "sLast"
 emptyWord = 'e'
+helloWORLD = "hrllo"
 class ReX2LTS:
     def __init__(self, btree):
         print(btree)
