@@ -6,6 +6,7 @@ ar = "hehheldskhfkashfsfdlasjf'lasj'asfasnf'asnf;nlasfas!!!!!!!"
 # этот МСП принимает слова состоящие из букв a, b с четным количеством букв a
 
 hello = 'hello world'
+bye = 'bye'
 class MSP:
     def __init__(self):
         self.sigma = ('a', 'b')
