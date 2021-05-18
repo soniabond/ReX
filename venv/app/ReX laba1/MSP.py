@@ -4,6 +4,8 @@ emplyWord = 'e'
 
 ar = "hehheldskhfkashfsfdlasjf'lasj'asfasnf'asnf;nlasfas!!!!!!!"
 # этот МСП принимает слова состоящие из букв a, b с четным количеством букв a
+
+hello = 'hello world'
 class MSP:
     def __init__(self):
         self.sigma = ('a', 'b')
